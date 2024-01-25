@@ -23,4 +23,7 @@ class ApiUrl implements AuthenticationApiUrls {
 
   @override
   String get getDashboardData => throw UnimplementedError();
+
+  @override
+  String get repoSearchUrl => "/search/repositories";
 }

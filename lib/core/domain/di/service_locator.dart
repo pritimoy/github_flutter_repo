@@ -1,4 +1,8 @@
 import 'package:get_it/get_it.dart';
+import 'package:github_flutter_repo/features/home/data/datasource/home_cache_datasource.dart';
+import 'package:github_flutter_repo/features/home/data/datasource/home_http_datasource.dart';
+import 'package:github_flutter_repo/features/home/data/repository/home_repository_impl.dart';
+import 'package:github_flutter_repo/features/home/domain/usecase/get_github_repos.dart';
 
 import '../../../app/app.dart';
 import '../../../services/logout/logout_service.dart';
@@ -21,21 +25,29 @@ Future<void> setUpServiceLocator(AppConfig appConfig) async {
         apiVersion: appConfig.apiVersion,
       ));
 
-  // serviceLocator.registerSingleton<Logger>(Logger());
-
   serviceLocator.registerSingleton<LogoutService>(
     LogoutService(
       cache: serviceLocator<BaseCache>(),
     ),
   );
 
-  ///splash
+  ///cache datasource
+  serviceLocator.registerFactory<HomeCacheDatasource>(
+      () => HomeCacheDatasource(serviceLocator()));
 
-  // serviceLocator.registerFactory<GetUser>(() => GetUser(serviceLocator()));
-  // serviceLocator.registerFactory<ProfileRepository>(
-  //         () => ProfileRepositoryImpl(serviceLocator()));
-  // serviceLocator.registerFactory<ProfileDatasource>(
-  //         () => ProfileCacheDatasource(serviceLocator()));
+  /// Http datasource
+  serviceLocator.registerFactory<HomeHttpDatasource>(
+      () => HomeHttpDatasource(serviceLocator()));
+
+  ///repository
+  serviceLocator.registerFactory(
+      () => HomeRepositoryImpl(serviceLocator(), serviceLocator()));
+
+  // serviceLocator.registerFactory<HomeRepository>(() => HomeRepository);
+
+  ///usecase
+  serviceLocator
+      .registerFactory<GetGitHubRepos>(() => GetGitHubRepos(serviceLocator()));
 
   serviceLocator.registerFactory<ApiProviderTokenInterceptor>(
       () => ApiProviderTokenInterceptor());

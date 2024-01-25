@@ -11,5 +11,5 @@ void main() {
     DeviceOrientation.portraitUp,
   ]);
 
-  bootstrap(() => const AppRepositoryProvider());
+  bootstrap(() => const AppBlocProvider());
 }

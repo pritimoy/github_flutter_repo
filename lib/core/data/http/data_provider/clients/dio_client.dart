@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:github_flutter_repo/app/app.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 import '../api_provider_token_interceptor.dart';
@@ -8,6 +9,7 @@ class DioClient {
   DioClient._internal();
   Dio dio = Dio(
     BaseOptions(
+      baseUrl: appConfig.apiBaseUrl,
       connectTimeout: const Duration(seconds: 10), // 10 s
       headers: <String, String>{
         'Content-Type': 'application/json',

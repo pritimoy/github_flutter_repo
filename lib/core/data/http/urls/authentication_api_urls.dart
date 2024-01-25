@@ -5,4 +5,5 @@ abstract class AuthenticationApiUrls {
   String get gmailLoginUrl;
   String get facebookLoginUrl;
   String get registrationUrl;
+  String get repoSearchUrl;
 }
