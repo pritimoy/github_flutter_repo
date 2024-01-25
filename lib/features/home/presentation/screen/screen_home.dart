@@ -8,7 +8,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: Container(
         child: Center(
-          child: Text("Hello! BrainStation"),
+          child: Text("Hello! world"),
         ),
       ),
     );
