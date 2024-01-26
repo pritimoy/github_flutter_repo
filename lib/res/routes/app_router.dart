@@ -1,13 +1,14 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:github_flutter_repo/features/home/presentation/screen/screen_repo_details.dart';
 
 import '../res_export.dart';
 
 class AppRouter {
   static final widgetMap = <String, Widget Function(RouteSettings)>{
     RoutePaths.splash: (_) => Container(),
-    RoutePaths.detailsRepo: (settings) => Container(),
+    RoutePaths.detailsRepo: (settings) => ScreenRepoDetails(),
   };
 
   static Route generateRoute(RouteSettings settings) {

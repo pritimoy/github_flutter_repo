@@ -5,6 +5,7 @@ import '../../../../res/measurement.dart';
 
 Widget starAndLangWidget({required int starCount, required String language}) {
   return Row(
+    mainAxisSize: MainAxisSize.min,
     children: [
       Icon(
         Icons.star_border_outlined,

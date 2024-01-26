@@ -1,9 +1,6 @@
-import 'items/authentication_strings.dart';
-import 'items/dashboard_strings.dart';
 import 'items/menu_strings.dart';
 
-abstract class CommonStrings
-    implements MenuStrings, DashboardStrings, AuthenticationStrings {
+abstract class CommonStrings implements MenuStrings {
   String get appName;
 
   String get send;
@@ -19,6 +16,8 @@ abstract class CommonStrings
   String get next;
 
   String get verify;
+
+  String get clear;
 
   static String formatTime(int seconds) {
     return '${(Duration(seconds: seconds))}'.substring(2, 7);

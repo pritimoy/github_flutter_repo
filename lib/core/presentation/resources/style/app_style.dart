@@ -17,10 +17,13 @@ class AppFontSize {
 class AppTextStyle {
   AppColors appColors = AppColors();
 
-  TextStyle get appBarTextStyle => TextStyle(fontWeight: FontWeight.w600, fontSize: AppFontSize.appBarTextSize);
+  TextStyle get appBarTextStyle => TextStyle(
+      fontWeight: FontWeight.w600, fontSize: AppFontSize.appBarTextSize);
 
-  TextStyle get splashScreenTextStyle =>
-      TextStyle(fontWeight: FontWeight.w800, fontSize: AppFontSize.splashScreenTextSize, color: appColors.black);
+  TextStyle get splashScreenTextStyle => TextStyle(
+      fontWeight: FontWeight.w800,
+      fontSize: AppFontSize.splashScreenTextSize,
+      color: appColors.black);
 
   TextStyle w400s14([Color? color]) {
     return TextStyle(

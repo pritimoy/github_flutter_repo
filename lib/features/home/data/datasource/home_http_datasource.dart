@@ -10,9 +10,17 @@ class HomeHttpDatasource extends HttpDatasource implements HomeDatasource {
 
   @override
   ResultFuture<GitHubRepoResponse> getGitHubRepo(
-      GetGitHubReposParams params) async {
+      GetGitHubReposParams qparams) async {
+    Map<String, dynamic> qMap = {
+      "q": qparams.keyword,
+      "per_page": qparams.perPage,
+      "page": qparams.page
+    };
+    if (qparams.sort.isNotEmpty) {
+      qMap["sort"] = qparams.sort;
+    }
     var response = await client.invokeApi(ApiUrl().repoSearchUrl, HTTPType.get,
-        queryParams: {"q": "flutter", "per_page": 10, "page": 1});
+        queryParams: qMap);
     return response.fold((error) => Left(error),
         (data) => Right(GitHubRepoResponse.fromJson(data)));
   }

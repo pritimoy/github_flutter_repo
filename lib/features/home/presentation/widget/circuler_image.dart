@@ -5,13 +5,16 @@ import '../../../../res/measurement.dart';
 
 class CircleImageItem extends StatelessWidget {
   final String imageUrl;
-  const CircleImageItem({super.key, required this.imageUrl});
+  final double? height;
+  final double? width;
+  const CircleImageItem(
+      {super.key, required this.imageUrl, this.height, this.width});
 
   @override
   Widget build(BuildContext context) {
     return CachedNetworkImage(
-      height: measurement.sizeByHeight(30),
-      width: measurement.sizeByHeight(30),
+      height: measurement.sizeByHeight(height ?? 30),
+      width: measurement.sizeByHeight(width ?? 30),
       imageUrl: imageUrl,
       imageBuilder: (context, imageProvider) => Container(
         decoration: BoxDecoration(
