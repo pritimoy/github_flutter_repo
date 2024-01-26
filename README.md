@@ -26,3 +26,9 @@ DEFAULT_LOCALE = en
 
 https://drive.google.com/drive/folders/18Ql9yRvZxHMxTOa12Ffu1Igyr5G1SAUf?usp=sharing
 here you can find all info. Please check it out. 
+
+![project](https://github.com/pritimoy/github_flutter_repo/assets/22918584/34c7476f-44d7-498d-a93d-7f015d5649d9)
+![app](https://github.com/pritimoy/github_flutter_repo/assets/22918584/d1d196a2-9ba6-4a5e-b89b-f0b9bd4022c2)
+![core](https://github.com/pritimoy/github_flutter_repo/assets/22918584/64d832ef-4cf7-4e69-9018-20219e236d4f)
+![features](https://github.com/pritimoy/github_flutter_repo/assets/22918584/734211bc-21a7-419d-a1a9-d3267538042d)
+![service and res](https://github.com/pritimoy/github_flutter_repo/assets/22918584/ea65354f-3842-45c1-b413-a50d42dbf6e8)
