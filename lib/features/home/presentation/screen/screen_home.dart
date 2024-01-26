@@ -104,7 +104,7 @@ class _HomeScreenState extends State<HomeScreen> {
         showMenu(
           context: context,
           position: const RelativeRect.fromLTRB(
-              10, 0, 10, 10), // adjust positioning based on your needs
+              16, 80, 0, 10), // adjust positioning based on your needs
           items: [
             PopupMenuItem(
               value: 'star',
