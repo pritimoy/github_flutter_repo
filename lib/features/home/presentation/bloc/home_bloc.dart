@@ -11,18 +11,28 @@ part 'home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   final GetGitHubRepos getGitHubRepos;
-  HomeBloc(this.getGitHubRepos) : super(const HomeState()) {
+
+  List<GitRepoItem>? gitRepoItemList = <GitRepoItem>[];
+  int page = 1;
+  HomeBloc(this.getGitHubRepos) : super(HomeState()) {
     on<RequestGithubRepository>(_onGetGitRepository);
   }
 
   void _onGetGitRepository(
       RequestGithubRepository event, Emitter<HomeState> emit) async {
+    emit(state.copyWith(stateStatus: StateStatus.loading));
     var response = await getGitHubRepos.call(const GetGitHubReposParams(
         keyword: "", page: 1, perPage: 2, sort: "star"));
 
     response.fold(
         (l) => debugPrint("--------error ${l.message}"),
-        (r) => debugPrint(
-            "---------------> res ${r.totalCount} ${r.gitRepoItem?[0].name}"));
+        (data) => {
+              debugPrint(
+                  "---------------> res ${data.totalCount} ${data.gitRepoItem?[0].name}"),
+              gitRepoItemList?.addAll(data.gitRepoItem!),
+              emit(state.copyWith(
+                  stateStatus: StateStatus.loaded,
+                  gitRepoItemList: gitRepoItemList)),
+            });
   }
 }
